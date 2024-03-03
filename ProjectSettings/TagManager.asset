@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enormous Enterprise
+  - Anonymous Alliance
+  - EnormousEnterprise
+  - AnonymousAlliance
   layers:
   - Default
   - TransparentFX
