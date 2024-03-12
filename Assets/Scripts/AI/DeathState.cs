@@ -1,38 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class MeleeWalkState : StateMachineBehaviour
+public class DeathState : StateMachineBehaviour
 {
-    UnitManager unit;
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        unit = animator.GetComponentInParent<UnitManager>();
+        animator.gameObject.SetActive(false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
-
-        unit.agent.SetDestination(nearestEnemy.transform.position);
-
-        if (nearestEnemy == null)
-        {
-            Debug.LogError("ERROR: No enemies detected");
-            return;
-        }
-
-        float distance = Vector3.Distance(unit.agent.transform.position, nearestEnemy.transform.position);
-        if (distance <= unit.range)
-        {
-            unit.agent.speed = 0.0f;
-            animator.SetTrigger("Attack");
-        }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

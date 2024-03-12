@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeAttackState : StateMachineBehaviour
 {
     UnitManager unitManager;
+    GameObject hitbox;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -15,7 +16,7 @@ public class MeleeAttackState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject nearestEnemy = GameObject.FindWithTag(unitManager.enemyTeam[(int)unitManager.returnTeamAffliation]);
+        GameObject nearestEnemy = GameObject.FindWithTag(unitManager.enemyTeam[unitManager.returnTeamAffliation]);
         unitManager.agent.SetDestination(nearestEnemy.transform.position);
 
         if (nearestEnemy == null)
@@ -28,7 +29,7 @@ public class MeleeAttackState : StateMachineBehaviour
         if (distance >= unitManager.range)
         {
             unitManager.agent.speed = unitManager.speed;
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Walk");
         }
     }
 

@@ -50,6 +50,9 @@ public class UnitManager : MonoBehaviour
     [Header("Attack Range")]
     public float range;
 
+    [Header("Melee Hitbox")]
+    public GameObject hitbox;
+
     [Header("Ranged Unit Ammunition")]
     public GameObject projectile;
     public Transform projectileSpawn;
@@ -83,6 +86,7 @@ public class UnitManager : MonoBehaviour
 
         activateUnit(unitType);
         SetUnitProperties();
+        agent.speed = speed;
     }
 
     void LateUpdate()
