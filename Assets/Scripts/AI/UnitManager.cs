@@ -59,34 +59,20 @@ public class UnitManager : MonoBehaviour
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-
-        returnTeamAffliation = (int)teamAffliation;
-
         Action<Unit_Types> activateUnit = (Unit_Types unitType) =>
-        {/*
-            foreach (var unit in unitModels)
-            {
-                if (unit == unitModels[unitIndices[unitType]])
-                {
-                    GameObject unitToActivate = unit;
-                    unitToActivate.SetActive(true);
-                    animator = unitToActivate.GetComponent<Animator>();
-                }
-                else
-                {
-                    Destroy(unit);
-                }
-            }*/
+        {
             GameObject unitToActivate = unitModels[unitIndices[unitType]];
             unitToActivate.SetActive(true);
             animator = unitToActivate.GetComponent<Animator>();
         };
 
-        activateUnit(unitType);
+        // Set NavMesh Agent
+        agent = GetComponent<NavMeshAgent>();
+
+        // Set Unit's Properties
         SetUnitProperties();
-        agent.speed = speed;
+
+        activateUnit(unitType);
     }
 
     void LateUpdate()
@@ -112,6 +98,8 @@ public class UnitManager : MonoBehaviour
 
     void SetUnitProperties()
     {
+        returnTeamAffliation = (int)teamAffliation;
+
         switch(unitType)
         {
             case Unit_Types.Brawler:
@@ -139,6 +127,8 @@ public class UnitManager : MonoBehaviour
                 range = GameManager.Instance.managerRange;
                 break;
         }
+
+        agent.speed = speed;
     }
 
     private AnimationClip GetCurrentAnimatorClip(Animator anim, int layer)

@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class MeleeAttackState : StateMachineBehaviour
 {
-    UnitManager unitManager;
+    UnitManager unit;
     GameObject hitbox;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        unitManager = animator.GetComponentInParent<UnitManager>();
+        unit = animator.GetComponentInParent<UnitManager>();
+        hitbox = unit.hitbox;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject nearestEnemy = GameObject.FindWithTag(unitManager.enemyTeam[unitManager.returnTeamAffliation]);
-        unitManager.agent.SetDestination(nearestEnemy.transform.position);
+        if (unit.health <= 0.0f)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
+        
+        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
+        unit.agent.SetDestination(nearestEnemy.transform.position);
 
         if (nearestEnemy == null)
         {
@@ -25,10 +32,12 @@ public class MeleeAttackState : StateMachineBehaviour
             return;
         }
 
-        float distance = Vector3.Distance(unitManager.agent.transform.position, nearestEnemy.transform.position);
-        if (distance >= unitManager.range)
+        unit.transform.LookAt(nearestEnemy.transform);
+
+        float distance = Vector3.Distance(unit.agent.transform.position, nearestEnemy.transform.position);
+        if (distance >= unit.range)
         {
-            unitManager.agent.speed = unitManager.speed;
+            unit.agent.speed = unit.speed;
             animator.SetTrigger("Walk");
         }
     }

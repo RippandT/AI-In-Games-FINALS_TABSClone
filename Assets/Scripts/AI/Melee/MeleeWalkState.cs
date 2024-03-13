@@ -16,6 +16,12 @@ public class MeleeWalkState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (unit.health <= 0.0f)
+        {
+            animator.SetTrigger("Dead");
+            return;
+        }
+
         GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
 
         unit.agent.SetDestination(nearestEnemy.transform.position);

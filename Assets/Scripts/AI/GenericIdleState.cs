@@ -5,18 +5,22 @@ using System.Threading.Tasks;
 
 public class GenericIdleState : StateMachineBehaviour
 {
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    UnitManager unit;
+    float startingHealth;
+
     override public async void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        unit = animator.GetComponentInParent<UnitManager>();
         await Task.Delay(5000);
         animator.SetTrigger("Walk");
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Immediately go to Walk state when threatened
+        if (unit.health < startingHealth)
+            animator.SetTrigger("Walk");
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

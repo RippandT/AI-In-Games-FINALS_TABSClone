@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeHitbox : MonoBehaviour
 {
     UnitManager unitManager;
-    public List<GameObject> enemies;
+    public List<UnitManager> enemies;
 
     void Start()
     {
@@ -16,18 +16,20 @@ public class MeleeHitbox : MonoBehaviour
     {
         if (other.CompareTag(unitManager.enemyTeam[unitManager.returnTeamAffliation]))
         {
-            enemies.Add(other.gameObject);
+            enemies.Add(other.gameObject.GetComponent<UnitManager>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        enemies.Remove(other.gameObject);
+        enemies.Remove(other.gameObject.GetComponent<UnitManager>());
     }
 
     public void OnHit()
     {
-        Debug.Log(enemies);
-        Debug.Log(unitManager.damage);
+        foreach (UnitManager enemy in enemies)
+        {
+            enemy.health -= unitManager.damage;
+        }
     }
 }
