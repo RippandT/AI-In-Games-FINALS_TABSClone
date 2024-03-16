@@ -5,13 +5,13 @@ using UnityEngine;
 public class MeleeAttackState : StateMachineBehaviour
 {
     UnitManager unit;
-    GameObject hitbox;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         unit = animator.GetComponentInParent<UnitManager>();
-        hitbox = unit.hitbox;
+        unit.agent.ResetPath();
+        unit.agent.speed = 0.0f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,29 +23,29 @@ public class MeleeAttackState : StateMachineBehaviour
             return;
         }
         
-        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
-        unit.agent.SetDestination(nearestEnemy.transform.position);
+        GameObject nearestAlly = GameObject.FindWithTag(unit.teamAffliation.ToString());
 
-        if (nearestEnemy == null)
+        if (nearestAlly == null)
         {
-            Debug.LogError("ERROR: No enemies detected");
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsAttacking", false);
             return;
         }
 
-        unit.transform.LookAt(nearestEnemy.transform);
+        unit.transform.LookAt(nearestAlly.transform);
 
-        float distance = Vector3.Distance(unit.agent.transform.position, nearestEnemy.transform.position);
+        float distance = Vector3.Distance(unit.agent.transform.position, nearestAlly.transform.position);
         if (distance >= unit.range)
         {
-            unit.agent.speed = unit.speed;
-            animator.SetTrigger("Walk");
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsAttacking", false);
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-    //    
+    //
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -11,6 +11,7 @@ public class MeleeWalkState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         unit = animator.GetComponentInParent<UnitManager>();
+        unit.agent.speed = unit.speed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,26 +25,27 @@ public class MeleeWalkState : StateMachineBehaviour
 
         GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
 
-        unit.agent.SetDestination(nearestEnemy.transform.position);
-
         if (nearestEnemy == null)
         {
-            Debug.LogError("ERROR: No enemies detected");
+            animator.SetBool("IsIdle", true);
+            animator.SetBool("IsWalking", false);
             return;
         }
+
+        unit.agent.SetDestination(nearestEnemy.transform.position);
 
         float distance = Vector3.Distance(unit.agent.transform.position, nearestEnemy.transform.position);
         if (distance <= unit.range)
         {
-            unit.agent.speed = 0.0f;
-            animator.SetTrigger("Attack");
+            animator.SetBool("IsAttacking", true);
+            animator.SetBool("IsWalking", false);
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-    //    
+     //
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

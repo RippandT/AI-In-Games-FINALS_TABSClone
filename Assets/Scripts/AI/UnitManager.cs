@@ -32,9 +32,11 @@ public class UnitManager : MonoBehaviour
     };
 
     [Header("Unit Information")]
+    public float maxHealth;
     public float health;
     public float damage;
     public float speed;
+    public float range;
     public Team teamAffliation;
     public int returnTeamAffliation;
     public Unit_Types unitType;
@@ -47,21 +49,18 @@ public class UnitManager : MonoBehaviour
     public Animator animator;
     public NavMeshAgent agent;
 
-    [Header("Attack Range")]
-    public float range;
-
-    [Header("Melee Hitbox")]
-    public GameObject hitbox;
-
-    [Header("Ranged Unit Ammunition")]
-    public GameObject projectile;
-    public Transform projectileSpawn;
-
     void Start()
     {
         Action<Unit_Types> activateUnit = (Unit_Types unitType) =>
         {
             GameObject unitToActivate = unitModels[unitIndices[unitType]];
+
+            foreach (GameObject unit in unitModels)
+            {
+                if (unit != unitToActivate)
+                    unit.SetActive(false);
+            }
+
             unitToActivate.SetActive(true);
             animator = unitToActivate.GetComponent<Animator>();
         };
@@ -127,8 +126,9 @@ public class UnitManager : MonoBehaviour
                 range = GameManager.Instance.managerRange;
                 break;
         }
-
+        maxHealth = health;
         agent.speed = speed;
+        agent.stoppingDistance = range;
     }
 
     private AnimationClip GetCurrentAnimatorClip(Animator anim, int layer)
