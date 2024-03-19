@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 7565501456058639773}
   - component: {fileID: 9138559447590364134}
   - component: {fileID: 6373870494671970415}
+  - component: {fileID: 7684190468069199559}
   m_Layer: 6
   m_Name: AllianceAgent
   m_TagString: AnonymousAlliance
@@ -150,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 8631772420701561241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.98, y: 0.142, z: 14.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -264,6 +265,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7684190468069199559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631772420701561241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59da4bf9d8e422a4b93f33cd15dfe0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollObject: {fileID: -6435813285778534965, guid: c816f390e587568429e24b94e21eb1f3, type: 3}
+  collectionCheck: 1
+  defaultCapacity: 20
+  maxSize: 100
+  maxAmmo: 5
+  ammoPerMagazine: 5
 --- !u!1001 &450179477427989732
 PrefabInstance:
   m_ObjectHideFlags: 0
