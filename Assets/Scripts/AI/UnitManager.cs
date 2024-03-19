@@ -128,7 +128,7 @@ public class UnitManager : MonoBehaviour
         }
         maxHealth = health;
         agent.speed = speed;
-        agent.stoppingDistance = range;
+        //agent.stoppingDistance = range;
     }
 
     private AnimationClip GetCurrentAnimatorClip(Animator anim, int layer)
