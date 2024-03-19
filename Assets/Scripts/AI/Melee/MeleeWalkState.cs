@@ -23,18 +23,17 @@ public class MeleeWalkState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
-
-        if (nearestEnemy == null)
+        if (unit.currentTarget.activeInHierarchy == false)
         {
+
             animator.SetBool("IsIdle", true);
             animator.SetBool("IsWalking", false);
             return;
         }
 
-        unit.agent.SetDestination(nearestEnemy.transform.position);
+        unit.agent.SetDestination(unit.currentTarget.transform.position);
 
-        float distance = Vector3.Distance(unit.agent.transform.position, nearestEnemy.transform.position);
+        float distance = Vector3.Distance(unit.agent.transform.position, unit.currentTarget.transform.position);
         if (distance <= unit.range)
         {
             animator.SetBool("IsAttacking", true);

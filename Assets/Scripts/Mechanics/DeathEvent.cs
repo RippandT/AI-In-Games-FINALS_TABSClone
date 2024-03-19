@@ -21,6 +21,9 @@ namespace DesignPatterns.ObjectPool
         [SerializeField] private int maxSize = 100;
 
         UnitManager unit;
+        [SerializeField] UnitList list;
+        [SerializeField] UIUnitCount count;
+
         public int maxAmmo = 5;
         public int ammoPerMagazine = 5;
 
@@ -33,7 +36,14 @@ namespace DesignPatterns.ObjectPool
 
         private void Start()
         {
+
             unit = GetComponentInParent<UnitManager>();
+            count = FindAnyObjectByType<UIUnitCount>();
+            if (unit.teamAffliation == Team.AnonymousAlliance)
+                list = GameObject.FindWithTag(TeamCount.AllianceCount.ToString()).GetComponent<UnitList>();
+            if (unit.teamAffliation == Team.EnormousEnterprise)
+                list = GameObject.FindWithTag(TeamCount.EnterpriseCount.ToString()).GetComponent<UnitList>();
+
         }
 
         // invoked when creating an item to populate the object pool
@@ -62,7 +72,10 @@ namespace DesignPatterns.ObjectPool
             Destroy(pooledObject.gameObject);
         }
 
-        public void SpawnRagdoll() { 
+        public void SpawnRagdoll() {
+            count.UpdateCount(-1, unit.returnTeamAffliation);
+
+            list.unitsInATeam.Remove(this.gameObject);
 
             // get a pooled object instead of instantiating
             RagdollPool ragdoll = objectPool.Get();

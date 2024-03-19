@@ -24,16 +24,14 @@ public class GunnerAttackState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
-
-        if (nearestEnemy == null)
+        if (unit.currentTarget == null)
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsAttacking", false);
             return;
         }
 
-        unit.transform.LookAt(nearestEnemy.transform);
+        unit.transform.LookAt(unit.currentTarget.transform);
 
         if (gun.ammoPerMagazine <= 0)
         {

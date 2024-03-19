@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GenericIdleState : StateMachineBehaviour
 {
     UnitManager unit;
+    UnitList list;
     float startingHealth;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         unit = animator.GetComponentInParent<UnitManager>();
+        list = GameObject.FindWithTag(unit.enemyTeamCount.ToString()).GetComponent<UnitList>();;
         unit.agent.ResetPath();
-        unit.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        unit.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        startingHealth = unit.maxHealth;
+        if (list.unitsInATeam.Count == 0)
+        {
+            unit.currentTarget = null;
+            return;
+        }
+        unit.currentTarget = list.unitsInATeam[Random.Range(0, list.unitsInATeam.Count)];
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,10 +30,8 @@ public class GenericIdleState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestEnemy = GameObject.FindWithTag(unit.enemyTeam[unit.returnTeamAffliation]);
-
-        // Immediately go to Walk state when threatened
-        if (unit.health < startingHealth || nearestEnemy != null)
+        // Immediately go to Walk state when threatened, or when there's an enemy
+        if (unit.health < startingHealth || unit.currentTarget.activeInHierarchy == true)
         {
             GoIntoAction(animator);
         }

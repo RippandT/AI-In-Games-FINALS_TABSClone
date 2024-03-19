@@ -177,6 +177,8 @@ MonoBehaviour:
   enemyTeam:
   - AnonymousAlliance
   - EnormousEnterprise
+  enemyTeamCount: 1
+  currentTarget: {fileID: 0}
   maxHealth: 0
   health: 0
   damage: 0
@@ -281,6 +283,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 20
   maxSize: 100
+  count: {fileID: 0}
   maxAmmo: 5
   ammoPerMagazine: 5
 --- !u!1001 &135980891278946205

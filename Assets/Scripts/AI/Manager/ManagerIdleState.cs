@@ -1,17 +1,29 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ManagerIdleState : StateMachineBehaviour
 {
     UnitManager unit;
+    UnitList list;
     float startingHealth;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         unit = animator.GetComponentInParent<UnitManager>();
+        list = GameObject.FindWithTag(unit.enemyTeamCount.ToString()).GetComponent<UnitList>();
+        /*
+
+        List<GameObject> unitPriority = list.unitsInATeam;
+
         unit.agent.ResetPath();
-        unit.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        unit.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        unitPriority.Remove(unit.gameObject);
+        unitPriority.Sort((u1,u2)=>u1.gameObject.GetComponentInParent<UnitManager>().health.CompareTo(u2.gameObject.GetComponentInParent<UnitManager>().health));
+
+        unit.currentTarget = unitPriority[0];//GameObject.FindWithTag(unit.teamAffliation.ToString());
+        */
+        unit.currentTarget = list.unitsInATeam[Random.Range(0, list.unitsInATeam.Count)];
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,9 +34,7 @@ public class ManagerIdleState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestAlly = GameObject.FindWithTag(unit.teamAffliation.ToString());
-
-        if (nearestAlly != null && nearestAlly != unit.gameObject)
+        if (unit.currentTarget.activeInHierarchy == true)
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsIdle", false);

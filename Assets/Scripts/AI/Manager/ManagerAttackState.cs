@@ -23,16 +23,14 @@ public class ManagerAttackState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestAlly = GameObject.FindWithTag(unit.teamAffliation.ToString());
-
-        if (nearestAlly == null || nearestAlly == unit.gameObject)
+        if (unit.currentTarget.activeInHierarchy == false)
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsAttacking", false);
             return;
         }
 
-        unit.transform.LookAt(nearestAlly.transform);
+        unit.transform.LookAt(unit.currentTarget.transform);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enormous Enterprise
-  - Anonymous Alliance
   - EnormousEnterprise
   - AnonymousAlliance
+  - EnterpriseCount
+  - AllianceCount
   layers:
   - Default
   - TransparentFX

@@ -22,19 +22,17 @@ public class MeleeAttackState : StateMachineBehaviour
             animator.SetTrigger("Dead");
             return;
         }
-        
-        GameObject nearestAlly = GameObject.FindWithTag(unit.teamAffliation.ToString());
 
-        if (nearestAlly == null)
+        if (unit.currentTarget.activeInHierarchy == false)
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsAttacking", false);
             return;
         }
 
-        unit.transform.LookAt(nearestAlly.transform);
+        unit.transform.LookAt(unit.currentTarget.transform);
 
-        float distance = Vector3.Distance(unit.agent.transform.position, nearestAlly.transform.position);
+        float distance = Vector3.Distance(unit.agent.transform.position, unit.currentTarget.transform.position);
         if (distance >= unit.range)
         {
             animator.SetBool("IsWalking", true);

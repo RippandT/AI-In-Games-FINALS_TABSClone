@@ -22,18 +22,16 @@ public class ManagerWalkState : StateMachineBehaviour
             return;
         }
 
-        GameObject nearestAlly = GameObject.FindWithTag(unit.teamAffliation.ToString());
-
-        if (nearestAlly == null || nearestAlly == unit.gameObject)
+        if (unit.currentTarget.activeInHierarchy == false)
         {
             animator.SetBool("IsIdle", true);
             animator.SetBool("IsWalking", false);
             return;
         }
 
-        unit.agent.SetDestination(nearestAlly.transform.position);
+        unit.agent.SetDestination(unit.currentTarget.transform.position);
 
-        float distance = Vector3.Distance(unit.agent.transform.position, nearestAlly.transform.position);
+        float distance = Vector3.Distance(unit.agent.transform.position, unit.currentTarget.transform.position);
         if (distance <= unit.range)
         {
             animator.SetBool("IsAttacking", true);

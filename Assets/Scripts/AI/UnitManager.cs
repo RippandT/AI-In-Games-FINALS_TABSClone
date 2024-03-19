@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,12 @@ public enum Team
     AnonymousAlliance
 }
 
+public enum TeamCount
+{
+    EnterpriseCount,
+    AllianceCount
+}
+
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -30,6 +37,10 @@ public class UnitManager : MonoBehaviour
         {Unit_Types.Gunner, 2},
         {Unit_Types.Manager, 3}
     };
+
+    [Header("Battle")]
+    public TeamCount enemyTeamCount;
+    public GameObject currentTarget;
 
     [Header("Unit Information")]
     public float maxHealth;
@@ -124,6 +135,10 @@ public class UnitManager : MonoBehaviour
                 damage = GameManager.Instance.managerDamage;
                 speed = GameManager.Instance.managerSpeed;
                 range = GameManager.Instance.managerRange;
+                if (teamAffliation == Team.AnonymousAlliance)
+                    enemyTeamCount = TeamCount.AllianceCount;
+                if (teamAffliation == Team.EnormousEnterprise)
+                    enemyTeamCount = TeamCount.EnterpriseCount;
                 break;
         }
         maxHealth = health;
