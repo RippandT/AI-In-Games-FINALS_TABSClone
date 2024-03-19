@@ -18008,8 +18008,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allianceCounter: {fileID: 2134251788}
   enterpriseCounter: {fileID: 1171029300}
-  allianceVictoryScreen: {fileID: 0}
-  enterpriseVictoryScreen: {fileID: 0}
+  allianceVictoryScreen: {fileID: 155898305}
+  enterpriseVictoryScreen: {fileID: 289096271}
 --- !u!1001 &672228783
 PrefabInstance:
   m_ObjectHideFlags: 0
