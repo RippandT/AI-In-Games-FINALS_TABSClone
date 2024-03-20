@@ -23,7 +23,7 @@ public class MeleeWalkState : StateMachineBehaviour
             return;
         }
 
-        if (unit.currentTarget.activeInHierarchy == false)
+        if (unit.currentTarget == null || unit.currentTarget.activeInHierarchy == false)
         {
 
             animator.SetBool("IsIdle", true);

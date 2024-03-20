@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 193514514987095008}
   - component: {fileID: 4985666942247829832}
   - component: {fileID: 5423815471868569332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2538269531082128480}
   - component: {fileID: 8816105787278250937}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2790908922632724143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7511487504303576524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 5587822174764137625}
   - component: {fileID: 3040014135549304930}
   - component: {fileID: 8609023073955182493}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 1020012879506814009}
   - component: {fileID: 5809529707567949415}
   - component: {fileID: 1387020680462410711}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3995896372118814371}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_AttachHandLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2136681890974511512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6031863427634203520}
   - component: {fileID: 3027073637300374723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8108444617733546410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 1441552945347503254}
   - component: {fileID: 308846030808910499}
   - component: {fileID: 4278320411904137686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8326211998780597489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5979068759390416646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 676937975430172406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9136194396807659717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_AttachHandRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2386938252042915906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 330209413652445471}
   - component: {fileID: 3008151240868117502}
   - component: {fileID: -6435813285778534965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AllianceRagdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,7 +1211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9096551119257860987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6950683154536004539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1276,7 +1276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848356790134396556}
   - component: {fileID: 5093293539095391235}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 1404802812226098479}
   - component: {fileID: 363743076002749959}
   - component: {fileID: 7482794042440877552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1531,7 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7306132186242085287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,7 +1563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807760511676977419}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1594,7 +1594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5052579452530709582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 8184448113071035138}
   - component: {fileID: 1145763523194045827}
   - component: {fileID: 5573718781400737305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1713,7 @@ GameObject:
   - component: {fileID: 5565686885238774555}
   - component: {fileID: 6747022688114562501}
   - component: {fileID: 2296317933183731165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,7 +1841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8022040538768216793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1873,7 +1873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8393728332664818014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304454916342041109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1940,7 +1940,7 @@ GameObject:
   - component: {fileID: 4870761005125667339}
   - component: {fileID: 8970465981187335714}
   - component: {fileID: 5091213061506777795}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2068,7 +2068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4254255183956167592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5061749475217901646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2131,7 +2131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5661455766961529505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2163,7 +2163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5295305803173264455}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2195,7 +2195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2720780523764189013}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 5932016969077512835}
   - component: {fileID: 5678642941892893251}
   - component: {fileID: 8775427914987043017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2360,7 +2360,7 @@ GameObject:
   - component: {fileID: 6221602753600533879}
   - component: {fileID: 1138299360838885008}
   - component: {fileID: 3527370792408706664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2488,7 +2488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1407397365167029422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2520,7 +2520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2240617536224487469}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2554,7 +2554,7 @@ GameObject:
   - component: {fileID: 9078023527182423383}
   - component: {fileID: 7389660684620701812}
   - component: {fileID: 3770715107480358105}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2682,7 +2682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8070379422285817794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2713,7 +2713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4119953260953102699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2744,7 +2744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188507358039738843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2776,7 +2776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8156286870967918996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2808,7 +2808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122215122720181756}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2839,7 +2839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6811715661961064053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: genSuit_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

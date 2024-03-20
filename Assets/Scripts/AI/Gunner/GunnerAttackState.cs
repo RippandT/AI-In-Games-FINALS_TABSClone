@@ -24,14 +24,20 @@ public class GunnerAttackState : StateMachineBehaviour
             return;
         }
 
-        if (unit.currentTarget == null)
+        if (unit.currentTarget == null || unit.currentTarget == null)
         {
-            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsIdle", true);
             animator.SetBool("IsAttacking", false);
             return;
         }
 
         unit.transform.LookAt(unit.currentTarget.transform);
+        float distance = Vector3.Distance(unit.agent.transform.position, unit.currentTarget.transform.position);
+        if (distance <= unit.range)
+        {
+            animator.SetBool("IsAttacking", true);
+            animator.SetBool("IsWalking", false);
+        }
 
         if (gun.ammoPerMagazine <= 0)
         {

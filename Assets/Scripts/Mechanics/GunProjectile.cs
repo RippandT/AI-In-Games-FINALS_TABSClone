@@ -80,11 +80,14 @@ namespace DesignPatterns.ObjectPool {
             if (bulletObject == null)
                 return;
 
-            // Assign damage to bullet
-            bulletObject.damage = unit.damage;
+            // Set bullet's data
+            bulletObject.damage = Random.Range(unit.unitDamageRange[0], unit.unitDamageRange[1]);//unit.damage;
+            bulletObject.enemyTag = unit.enemyTeam[unit.returnTeamAffliation];
+            bulletObject.whoShotIt = unit.gameObject;
 
             // align to gun barrel/muzzle position
-            bulletObject.transform.SetPositionAndRotation(muzzlePosition.position, unit.transform.rotation);
+            bulletObject.transform.position = (muzzlePosition.position);//unit.cur.rotation);
+            bulletObject.transform.LookAt(unit.currentTarget.transform);
 
             // move projectile forward
             bulletObject.GetComponent<Rigidbody>().AddForce(bulletObject.transform.forward * muzzleVelocity, ForceMode.Acceleration);

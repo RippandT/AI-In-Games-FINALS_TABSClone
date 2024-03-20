@@ -23,7 +23,21 @@ public class ManagerAttackState : StateMachineBehaviour
             return;
         }
 
-        if (unit.currentTarget.activeInHierarchy == false)
+        if (healer.cashInHand.activeInHierarchy == false)
+        {
+            animator.SetBool("IsReloading", true);
+            animator.SetBool("IsAttacking", false);
+        }
+
+        if (unit.currentTarget == null || unit.currentTarget.activeInHierarchy == false)
+        {
+            animator.SetBool("IsIdle", true);
+            animator.SetBool("IsAttacking", false);
+            return;
+        }
+
+        float distance = Vector3.Distance(unit.agent.transform.position, unit.currentTarget.transform.position);
+        if (distance >= unit.range)
         {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsAttacking", false);

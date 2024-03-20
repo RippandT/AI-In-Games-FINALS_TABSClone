@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,7 +13,7 @@ namespace DesignPatterns.ObjectPool {
 
         [Tooltip("End point of gun where shots appear")]
         [SerializeField] private Transform muzzlePosition;
-        [SerializeField] private GameObject cashInHand;
+        public GameObject cashInHand;
 
         // stack-based ObjectPool available with Unity 2021 and above
         private IObjectPool<Cash> objectPool;
@@ -23,7 +25,9 @@ namespace DesignPatterns.ObjectPool {
         [SerializeField] private int defaultCapacity = 20;
         [SerializeField] private int maxSize = 100;
 
+        // Custom calls for healer/manager
         UnitManager unit;
+        UnitList list;
 
         private void Awake()
         {
@@ -35,6 +39,7 @@ namespace DesignPatterns.ObjectPool {
         private void Start()
         {
             unit = GetComponentInParent<UnitManager>();
+            list = GameObject.FindWithTag(unit.enemyTeamCount.ToString()).GetComponent<UnitList>();
         }
 
         // invoked when creating an item to populate the object pool
@@ -74,7 +79,8 @@ namespace DesignPatterns.ObjectPool {
             cashObject.damage = unit.damage;
 
             // align to gun barrel/muzzle position
-            cashObject.transform.SetPositionAndRotation(muzzlePosition.position, unit.transform.rotation);
+            cashObject.transform.position = (muzzlePosition.position);//unit.cur.rotation);
+            cashObject.transform.LookAt(unit.currentTarget.transform);
 
             // move projectile forward
             cashObject.GetComponent<Rigidbody>().AddForce(cashObject.transform.forward * muzzleVelocity, ForceMode.Acceleration);
@@ -85,6 +91,21 @@ namespace DesignPatterns.ObjectPool {
         void RetrieveMoney()
         {
             cashInHand.SetActive(true);
+        }
+
+        public void SetTargetPriority()
+        {
+            List<GameObject> unitPriority = new List<GameObject>(list.unitsInATeam);
+
+            if (unitPriority.Count == 0)
+                return;
+
+            unit.agent.ResetPath();
+
+            unitPriority.Remove(unit.gameObject);
+            unitPriority = unitPriority.OrderBy(e => e.GetComponent<UnitManager>().health - e.GetComponent<UnitManager>().maxHealth).ToList();
+
+            unit.currentTarget = unitPriority[0];//GameObject.FindWithTag(unit.teamAffliation.ToString());
         }
     }
 }

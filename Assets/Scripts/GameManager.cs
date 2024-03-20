@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public float managerDamage;
     public float managerSpeed;
     public float managerRange;
+    [Header("Mischellaneous")]
+    [Tooltip("The damage will be between unit damage plus and minus the damage range")]
+    public float damageRange;
 
     void Awake()
     {

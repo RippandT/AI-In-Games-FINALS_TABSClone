@@ -29,7 +29,8 @@ public class MeleeHitbox : MonoBehaviour
     {
         foreach (UnitManager enemy in enemies)
         {
-            enemy.health -= unitManager.damage;
+            enemy.currentTarget = unitManager.gameObject;
+            enemy.health -= Random.Range(unitManager.unitDamageRange[0], unitManager.unitDamageRange[1]);//unitManager.damage;
         }
     }
 }

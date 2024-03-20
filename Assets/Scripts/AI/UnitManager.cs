@@ -46,6 +46,7 @@ public class UnitManager : MonoBehaviour
     public float maxHealth;
     public float health;
     public float damage;
+    public float[] unitDamageRange = new float[] {0,0};
     public float speed;
     public float range;
     public Team teamAffliation;
@@ -141,6 +142,9 @@ public class UnitManager : MonoBehaviour
                     enemyTeamCount = TeamCount.EnterpriseCount;
                 break;
         }
+
+        unitDamageRange[0] = (damage - GameManager.Instance.damageRange);
+        unitDamageRange[1] = (damage + GameManager.Instance.damageRange);
         maxHealth = health;
         agent.speed = speed;
         //agent.stoppingDistance = range;

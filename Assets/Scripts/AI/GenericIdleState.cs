@@ -30,6 +30,10 @@ public class GenericIdleState : StateMachineBehaviour
             return;
         }
 
+        // Don't continue if there is no target
+        if (unit.currentTarget == null)
+            return;
+
         // Immediately go to Walk state when threatened, or when there's an enemy
         if (unit.health < startingHealth || unit.currentTarget.activeInHierarchy == true)
         {

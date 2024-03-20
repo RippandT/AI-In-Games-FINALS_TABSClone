@@ -9,6 +9,8 @@ namespace DesignPatterns.ObjectPool {
         [SerializeField] private float timeoutDelay = 5f;
 
         public float damage = 0.0f;
+        public string enemyTag;
+        public GameObject whoShotIt;
 
         private IObjectPool<Bullet> objectPool;
 
@@ -41,14 +43,14 @@ namespace DesignPatterns.ObjectPool {
 
         void OnTriggerEnter(Collider other) {
             GameObject whatIHit = other.gameObject;
-            Debug.Log(whatIHit);
 
             // Indiscriminate bullet LMAO
             UnitManager unit = whatIHit.GetComponent<UnitManager>();
             if (unit != null)
             {
+                if (other.CompareTag(enemyTag))
+                    unit.currentTarget = whoShotIt;
                 unit.health -= damage;
-                Debug.Log(damage);
             }
 
             Deactivate();
