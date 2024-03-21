@@ -29,7 +29,7 @@ public enum TeamCount
 [RequireComponent(typeof(Rigidbody))]
 public class UnitManager : MonoBehaviour
 {
-    public string[] enemyTeam;
+    public string[] enemyTeam = new string[2] {"AnonymousAlliance", "EnormousEnterprise"};
     public Dictionary<Unit_Types,int> unitIndices = new Dictionary<Unit_Types, int>()
     {
         {Unit_Types.Brawler, 0},

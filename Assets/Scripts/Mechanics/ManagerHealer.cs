@@ -77,6 +77,7 @@ namespace DesignPatterns.ObjectPool {
 
             // Assign damage to bullet
             cashObject.damage = unit.damage;
+            cashObject.managerAffiliation = unit.tag;
 
             // align to gun barrel/muzzle position
             cashObject.transform.position = (muzzlePosition.position);//unit.cur.rotation);

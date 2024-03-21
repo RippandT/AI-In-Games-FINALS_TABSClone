@@ -39,12 +39,12 @@ public class UIUnitCount : MonoBehaviour
         if (allianceCount <= 0)
         {
             enterpriseVictoryScreen.SetActive(true);
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
         if (enterpriseCount <= 0)
         {
             allianceVictoryScreen.SetActive(true);
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

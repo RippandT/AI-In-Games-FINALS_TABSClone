@@ -14,6 +14,8 @@ namespace DesignPatterns.ObjectPool {
         // public property to give the projectile a reference to its ObjectPool
         public IObjectPool<Cash> ObjectPool { set => objectPool = value; }
 
+        public string managerAffiliation;
+
         private void Start()
         {
             StartCoroutine(DeactivateRoutine(timeoutDelay));
@@ -40,8 +42,12 @@ namespace DesignPatterns.ObjectPool {
             GameObject whatIHit = other.gameObject;
             Debug.Log(whatIHit);
 
-            // Indiscriminate bullet LMAO
+            // Discriminate cash; does damage if it hurts the enemy team by 75% of his healing rate
             UnitManager unit = whatIHit.GetComponent<UnitManager>();
+
+            if (other.CompareTag(managerAffiliation) == false)
+                damage = damage * -0.75f;
+
             if (unit != null)
             {
                 if (unit.health < unit.maxHealth)
